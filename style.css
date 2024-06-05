@@ -1,0 +1,61 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+body{
+    background: rgb(34,169,195);
+    background: linear-gradient(99deg, rgb(34, 218, 255) 33%, rgb(238, 5, 226) 69%);
+    color: black;
+}
+#div-login{
+    background-color: white;
+    width: 45%;
+    margin: 0 auto;
+    text-align: center;
+    height: 600px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+h1{
+    padding-top: 30px;
+}
+#email-login{
+    outline: none;
+    margin-top: 50px;
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+    border: transparent;
+    border-bottom: 2px solid black;
+}
+
+#password-login{
+    outline: none;
+    margin-top: 50px;
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+    border: transparent;
+    border-bottom: 2px solid black;
+}
+
+#but-login{
+    margin-top: 40px;
+    width: 250px;
+    height: 45px;
+    border: transparent;
+    border-radius: 10px;
+    background: rgb(34,169,195);
+    background: linear-gradient(99deg, rgb(34, 218, 255) 37%, rgb(238, 5, 226) 89%);
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    padding: 10px 50px;
+}
+
+#anc-login{
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: bolder;
+}
