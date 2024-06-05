@@ -6,7 +6,7 @@ const password = document.querySelector('#register-password');
 const againPassword = document.querySelector('#register-again-password');
 
 
-const nameRegex = /^[A-Z][a-zA-Z0-9]{4,13}(?: [A-Z][a-zA-Z0-9]*)?$/;
+const nameRegex = /^[A-Z][a-zA-Z0-9]* [a-z][a-zA-Z0-9]*$/;
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
 
@@ -71,6 +71,7 @@ form.addEventListener('submit', function(event){
     })
     addData();
     form.reset()
+    window.location ='index.html'
 });
 
 
