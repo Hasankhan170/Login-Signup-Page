@@ -8,18 +8,19 @@
     <title>Reigester Page</title>
 </head>
 <body>
+   <div id="div-login">
+    <h1>REGISTER</h1>
     <form>
-        <h2></h2>
-        <input type="text" placeholder="Enter a Username">
-        <br><br>
-        <input type="email" placeholder="Enter Your Email">
-        <br><br>
-        <input type="password" placeholder="Enter Your Password">
-        <br><br>
-        <input type="password" placeholder="Enter Your Password Again">
-        <button>Sign up</button>
+        <h2> <i class="fa-solid fa-user"></i> <input id="register-user" type="text" placeholder="Enter a Username"></h2>
+        <h2> <i class="fa-solid fa-envelope"></i> <input id="register-email" type="email" placeholder="Enter Your Email"></h2>
+        <h2> <i class="fa-solid fa-lock"></i> <input id="register-password" type="password" placeholder="Enter Your Password"></h2>
+        <h2> <i class="fa-solid fa-lock"></i> <input id="register-again-password" type="password" placeholder="Enter Your Password Again"></h2>
+        <button id="register-btn">Sign up</button>
     </form>
-    <h4>Already have an account? <a href="./index.html">Sign in</a></h4>
+    <h4 id="anc-register">Already have an account? <a href="./index.html">Sign in</a></h4>
+   </div>
     
+
+   <script src="register.js"></script>
 </body>
 </html>
