@@ -27,13 +27,6 @@ function validateAgainPassword(password,againPassword){
 }
 
 
-
-
-
-
-
-
-
 function addData(){
       localStorage.setItem('arr',JSON.stringify(arr)); // Convert the array to a JSON string and store it in localStorage
       localStorage.setItem('name',userName.value);
@@ -41,9 +34,35 @@ function addData(){
       localStorage.setItem('password',password.value);
       localStorage.setItem('againPassword',againPassword.value);
 }
+
+
+
 const arr = []
 form.addEventListener('submit', function(event){
     event.preventDefault();
+    let errors = [];
+
+    if(!validateName(userName.value)){
+        errors.push('Invalid username. It should start with an uppercase letter and be 6 to 15 characters long.');
+    }
+
+    if(!validateEmail(email.value)){
+        errors.push('Invalid Email')
+    }
+
+    if(!validatePassword(password.value)){
+        errors.push('Invalid Password. It should be at least 8 characters long and contain at least one special character.')
+    }
+
+    if(!validateAgainPassword(password.value,againPassword.value)){
+        errors.push('Passwords do not match')
+    }
+
+    if(errors.length> 0){
+        alert(errors.join('\n'));
+    }
+
+
     arr.push({
         userName: userName.value,
         email: email.value,
@@ -51,6 +70,7 @@ form.addEventListener('submit', function(event){
         againPassword: againPassword.value
     })
     addData();
+    form.reset()
 });
 
 
