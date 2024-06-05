@@ -3,21 +3,24 @@ const password = localStorage.getItem('password')
 
 
 
+
+
 const formLogin = document.querySelector('form');
 
 formLogin.addEventListener('submit', function(event){
     event.preventDefault();
-    const emailLogin = document.querySelector('#login-email').value;
-    const passwordLogin = document.querySelector('#login-password').value;
+    if (email === null || password === null) {
+        alert('Please register before attempting to login.');
+        return
+    }
+    const emailLogin = document.querySelector('#email-login').value;
+    const passwordLogin = document.querySelector('#password-login').value;
 
     if(emailLogin === email && passwordLogin === password ){
         alert('Login Successful')
     }else{
         alert('Email and Password do not match')
     }
+    formLogin.reset()
 })
 
-// if(email && password){
-//     document.querySelector('#email-login').value = email
-//     document.querySelector('#password-login').value = password
-// }

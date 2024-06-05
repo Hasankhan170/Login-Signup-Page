@@ -28,7 +28,7 @@ function validateAgainPassword(password,againPassword){
 
 
 function addData(){
-      localStorage.setItem('arr',JSON.stringify(arr)); // Convert the array to a JSON string and store it in localStorage
+    //   localStorage.setItem('arr',JSON.stringify(arr)); // Convert the array to a JSON string and store it in localStorage
       localStorage.setItem('name',userName.value);
       localStorage.setItem('email',email.value);
       localStorage.setItem('password',password.value);
@@ -38,9 +38,10 @@ function addData(){
 
 
 const arr = []
-form.addEventListener('submit', function(event){
-    event.preventDefault();
-    let errors = [];
+let errors = []
+
+function validateForm(){
+    errors = [];
 
     if(!validateName(userName.value)){
         errors.push('Invalid username. It should start with an uppercase letter and be 6 to 15 characters long.');
@@ -60,18 +61,25 @@ form.addEventListener('submit', function(event){
 
     if(errors.length> 0){
         alert(errors.join('\n'));
+        return false;
     }
+    return true;
+}
 
-
-    arr.push({
-        userName: userName.value,
-        email: email.value,
-        password: password.value,
-        againPassword: againPassword.value
-    })
-    addData();
-    form.reset()
-    window.location ='index.html'
+form.addEventListener('submit', function(event){
+    event.preventDefault();
+    if(validateForm()){
+        arr.push({
+            userName: userName.value,
+            email: email.value,
+            password: password.value,
+            againPassword: againPassword.value
+        })
+        addData();
+        form.reset()
+        alert('Registration Successful. Redirecting to login page.');
+        window.location ='index.html'
+    }
 });
 
 
