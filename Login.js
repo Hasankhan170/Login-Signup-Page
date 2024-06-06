@@ -1,10 +1,5 @@
 const email = localStorage.getItem('email')
 const password = localStorage.getItem('password')
-
-
-
-
-
 const formLogin = document.querySelector('form');
 
 formLogin.addEventListener('submit', function(event){
@@ -18,6 +13,7 @@ formLogin.addEventListener('submit', function(event){
 
     if(emailLogin === email && passwordLogin === password ){
         alert('Login Successful')
+        window.location = 'quiz.html'
     }else{
         alert('Email and Password do not match')
     }
