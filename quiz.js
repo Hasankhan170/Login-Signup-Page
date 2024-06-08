@@ -2,6 +2,10 @@
 const div = document.querySelector('div')
 
 let question =[]
+
+function shuffle(){
+    for(let i =)
+}
 const getQuestions = async ()=>{
     try {
         const response = await axios('https://the-trivia-api.com/v2/questions')
@@ -18,8 +22,10 @@ getQuestions();
 
 const showQuestion = (index)=>{
     const item = question[index]
-    if(item){}
-
+    if(item){
+        const answer = [item.incorrectAnswers,item.correctAnswer]
+        shuffle(answer)
+    }
 }
 
 
