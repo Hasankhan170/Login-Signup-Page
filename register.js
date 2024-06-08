@@ -27,13 +27,13 @@ function validateAgainPassword(password,againPassword){
 }
 
 
-function addData(){
-    //   localStorage.setItem('arr',JSON.stringify(arr)); // Convert the array to a JSON string and store it in localStorage
-      localStorage.setItem('name',userName.value);
-      localStorage.setItem('email',userEmail.value);
-      localStorage.setItem('password',userPassword.value);
-      localStorage.setItem('againPassword',againPassword.value);
-}
+// function addData(){
+//     //   localStorage.setItem('arr',JSON.stringify(arr)); // Convert the array to a JSON string and store it in localStorage
+//       localStorage.setItem('name',userName.value);
+//       localStorage.setItem('email',userEmail.value);
+//       localStorage.setItem('password',userPassword.value);
+//       localStorage.setItem('againPassword',againPassword.value);
+// }
 
 
 
@@ -50,6 +50,8 @@ function addUserData(){
     })
     localStorage.setItem('users',JSON.stringify(usersData))
 }
+
+
 let errors = []
 
 function validateForm(){
@@ -81,13 +83,7 @@ function validateForm(){
 form.addEventListener('submit', function(event){
     event.preventDefault();
     if(validateForm()){
-        arr.push({
-            userName: userName.value,
-            email: userEmail.value,
-            password: userPassword.value,
-            againPassword: againPassword.value
-        })
-        addData();
+        addUserData();
         form.reset()
         alert('Registration Successful. Redirecting to login page.');
         window.location ='index.html'
