@@ -1,8 +1,8 @@
 
 const form = document.querySelector('form');
 const userName = document.querySelector('#register-user');
-const email = document.querySelector('#register-email');
-const password = document.querySelector('#register-password');
+const userEmail = document.querySelector('#register-email');
+const userPassword = document.querySelector('#register-password');
 const againPassword = document.querySelector('#register-again-password');
 
 
@@ -30,14 +30,26 @@ function validateAgainPassword(password,againPassword){
 function addData(){
     //   localStorage.setItem('arr',JSON.stringify(arr)); // Convert the array to a JSON string and store it in localStorage
       localStorage.setItem('name',userName.value);
-      localStorage.setItem('email',email.value);
-      localStorage.setItem('password',password.value);
+      localStorage.setItem('email',userEmail.value);
+      localStorage.setItem('password',userPassword.value);
       localStorage.setItem('againPassword',againPassword.value);
 }
 
 
 
-const arr = []
+// const arr = []
+
+function addUserData(){
+    let usersData = JSON.parse(localStorage.getItem('users')) || []
+
+    usersData.push({
+        userName: userName.value,
+        email: userEmail.value,
+        password:  userPassword.value,
+        againPassword:  againPassword.value
+    })
+    localStorage.setItem('users',JSON.stringify(usersData))
+}
 let errors = []
 
 function validateForm(){
@@ -47,15 +59,15 @@ function validateForm(){
         errors.push('Invalid username. It should start with an uppercase letter and be 6 to 15 characters long.');
     }
 
-    if(!validateEmail(email.value)){
+    if(!validateEmail(userEmail.value)){
         errors.push('Invalid Email')
     }
 
-    if(!validatePassword(password.value)){
+    if(!validatePassword(userPassword.value)){
         errors.push('Invalid Password. It should be at least 8 characters long and contain at least one special character.')
     }
 
-    if(!validateAgainPassword(password.value,againPassword.value)){
+    if(!validateAgainPassword(userPassword.value,againPassword.value)){
         errors.push('Passwords do not match')
     }
 
@@ -71,8 +83,8 @@ form.addEventListener('submit', function(event){
     if(validateForm()){
         arr.push({
             userName: userName.value,
-            email: email.value,
-            password: password.value,
+            email: userEmail.value,
+            password: userPassword.value,
             againPassword: againPassword.value
         })
         addData();
