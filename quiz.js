@@ -7,7 +7,7 @@ let question =[]
 function shuffle(array){
     for(let i =array.length - 1 ; i > 0 ; i--){
         const j = Math.floor(Math.random()) * (i+1);
-        [array[i],array[j]],[array[j],array[1]]
+        [array[i],array[j]],[array[j],array[i]]
     }
     return array;
 }
@@ -28,7 +28,7 @@ const getQuestions = async ()=>{
 const showQuestion = (index)=>{
     const item = question[index]
     if(item){
-        const answer = [item.incorrectAnswers,item.correctAnswer]
+        const answer = [...item.incorrectAnswers,item.correctAnswer]
         shuffle(answer);
 
         let questionHTML = `<h1>${item.question.text}</h1>`
