@@ -4,7 +4,7 @@ const formLogin = document.querySelector('form');
 
 
 function getUsers(){
-    return JSON.parse(localStorage.getItem('users')) || []
+    return JSON.parse(localStorage.getItem('users')) || [];
 }
 
 function validateLogin(email,password){
@@ -23,16 +23,13 @@ formLogin.addEventListener('submit', function(event){
         return
     }
 
-    const user = validateLogin(email,password)
+    const user = validateLogin(email,password);
 
     if(user ){
-        alert('Login Successful')
+        alert('Login Successful');
         window.location = 'quiz.html'
     }else{
-        alert('Email and Password do not match')
+        alert('Email and Password do not match');
     }
-    formLogin.reset()
-})
-
-
-
+    formLogin.reset();
+});

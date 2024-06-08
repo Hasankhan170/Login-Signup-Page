@@ -5,7 +5,6 @@ const userEmail = document.querySelector('#register-email');
 const userPassword = document.querySelector('#register-password');
 const againPassword = document.querySelector('#register-again-password');
 
-
 const nameRegex = /^[A-Z][a-zA-Z0-9]* [a-z][a-zA-Z0-9]*$/;
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{8,}$/;
@@ -26,18 +25,6 @@ function validateAgainPassword(password,againPassword){
     return password === againPassword
 }
 
-
-// function addData(){
-//     //   localStorage.setItem('arr',JSON.stringify(arr)); // Convert the array to a JSON string and store it in localStorage
-//       localStorage.setItem('name',userName.value);
-//       localStorage.setItem('email',userEmail.value);
-//       localStorage.setItem('password',userPassword.value);
-//       localStorage.setItem('againPassword',againPassword.value);
-// }
-
-
-
-// const arr = []
 
 function addUserData(){
     let usersData = JSON.parse(localStorage.getItem('users')) || []
@@ -89,5 +76,3 @@ form.addEventListener('submit', function(event){
         window.location ='index.html'
     }
 });
-
-
