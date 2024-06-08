@@ -1,33 +1,33 @@
 
 const div = document.querySelector('div')
 
-// const getQusetion = async ()=>{
-// try {
-//     const res = await axios('https://the-trivia-api.com/v2/questions')
-//     res.data.map((item) => {
-//         div.innerHTML += `
-//         <h1>${item.question}</h1>
-//         <p style="color: black;">${item.incorrectAnswers}</p>`
-//     });
-// } catch (error) {
-//     console.log(error)
-    
-// }
-//     console.log(res.data)
-// }
-// getQusetion()
 
-// const div = document.querySelector('#quiz-container');
+// Function to shuffle an array
+// function shuffle(array) {
+//     for (let i = array.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [array[i], array[j]] = [array[j], array[i]];
+//     }
+//     return array;
+// }
 
 const getQuestions = async () => {
     try {
         const res = await axios('https://the-trivia-api.com/v2/questions');
-        res.data.forEach((item) => {
+        res.data.forEach(item => {
+            // Combine correct and incorrect answers
+            const answers = [...item.incorrectAnswers, item.correctAnswer];
+            // Shuffle the combined list
+            shuffle(answers);
+
+            // Build the HTML for the question and shuffled answers
+            const answersHTML = answers.map(answer => `<li style="color: black;">${answer}</li>`).join('');
+
             div.innerHTML += `
                 <h1>${item.question.text}</h1>
-                <ul>
-                    ${item.incorrectAnswers.map(answer => `<li style="color: black;">${answer}</li>`).join('')}
-                </ul>
+                <ol>
+                    ${answersHTML}
+                </ol>
             `;
         });
         console.log(res.data);
