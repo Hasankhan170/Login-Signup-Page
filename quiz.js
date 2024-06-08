@@ -1,8 +1,49 @@
 
 const div = document.querySelector('div')
 
+const getQuestions = async ()=>{
+    try {
+        const response = await axios('https://the-trivia-api.com/v2/questions')
+        console.log(response.data);
+        return response.data
+    } catch (error) {
+        console.log(error)   
+    }
+}
 
-// Function to shuffle an array
+getQuestions();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let currentQuestionIndex = 0;
+// let questions = [];
+
+// // Function to shuffle an array
 // function shuffle(array) {
 //     for (let i = array.length - 1; i > 0; i--) {
 //         const j = Math.floor(Math.random() * (i + 1));
@@ -11,32 +52,57 @@ const div = document.querySelector('div')
 //     return array;
 // }
 
-const getQuestions = async () => {
-    try {
-        const res = await axios('https://the-trivia-api.com/v2/questions');
-        res.data.forEach(item => {
-            // Combine correct and incorrect answers
-            const answers = [...item.incorrectAnswers, item.correctAnswer];
-            // Shuffle the combined list
-            shuffle(answers);
+// const getQuestions = async () => {
+//     try {
+//         const res = await axios('https://the-trivia-api.com/v2/questions');
+//         questions = res.data;
 
-            // Build the HTML for the question and shuffled answers
-            const answersHTML = answers.map(answer => `<li style="color: black;">${answer}</li>`).join('');
+//         // Display the first question
+//         showQuestion(currentQuestionIndex);
+//     } catch (error) {
+//         console.error('Error fetching the questions:', error);
+//     }
+// };
 
-            div.innerHTML += `
-                <h1>${item.question.text}</h1>
-                <ol>
-                    ${answersHTML}
-                </ol>
-            `;
-        });
-        console.log(res.data);
-    } catch (error) {
-        console.error('Error fetching the questions:', error);
-    }
-};
+// // Function to show a question
+// const showQuestion = (index) => {
+//     const item = questions[index];
+//     if (item) {
+//         // Combine correct and incorrect answers
+//         const answers = [...item.incorrectAnswers, item.correctAnswer];
+//         // Shuffle the combined list
+//         shuffle(answers);
 
-getQuestions();
+//         // Build the HTML for the question and shuffled answers with radio buttons
+//         let questionHTML = `<h1>${item.question.text}</h1>`;
+//         answers.forEach((answer, i) => {
+//             questionHTML += `
+//                 <label>
+//                     <input type="radio" name="question${index}" value="${answer}">
+//                     ${answer}
+//                 </label><br>
+//             `;
+//         });
+
+//         // Add Next button
+//         questionHTML += `<button onclick="nextQuestion()">Next</button>`;
+
+//         div.innerHTML = `<div class="question">${questionHTML}</div>`;
+//     } else {
+//         div.innerHTML = `<h1>Congratulations! You have completed the quiz.</h1>`;
+//     }
+// };
+
+// // Function to move to the next question
+// const nextQuestion = () => {
+//     currentQuestionIndex++;
+//     showQuestion(currentQuestionIndex);
+// };
+
+// getQuestions();
+
+
+
 
 
 
