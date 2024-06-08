@@ -1,11 +1,12 @@
 
 const div = document.querySelector('div')
 
+let question =[]
 const getQuestions = async ()=>{
     try {
         const response = await axios('https://the-trivia-api.com/v2/questions')
-        console.log(response.data);
-        return response.data
+        question = response.data
+        console.log(question);
     } catch (error) {
         console.log(error)   
     }
@@ -14,6 +15,12 @@ const getQuestions = async ()=>{
 getQuestions();
 
 
+
+const showQuestion = (index)=>{
+    const item = question[index]
+    if(item){}
+
+}
 
 
 
